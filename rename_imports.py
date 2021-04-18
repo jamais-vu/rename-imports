@@ -37,9 +37,6 @@ def add_js_extensions_for_dir(dir_: str, exclude: List[str] = EXCLUDE):
             A list of paths, as strings, to ignore.
     """
     os.chdir(dir_)  # We move into the directory
-    # TODO: Remove `and path.endswith('.js') to process nested directories
-    # Possible problem if there are non-js files in here, but that shouldn't
-    # happen? IDK.
     paths: List[str] = [path for path in os.listdir() if path not in EXCLUDE]
     for path in paths:
         if os.path.isfile(path) and path.endswith('.js'):
